@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{ task.title }}</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">{{ task.title }}</h1>
+        <p>{{ task.description }}</p>
+        <p>Category: {{ task.category.name }}</p>
+        <p>Completed: {% if task.completed %}Yes{% else %}No{% endif %}</p>
+        <h2 class="mt-4">Subtasks</h2>
+        <ul class="list-group mt-3">
+            {% for subtask in subtasks %}
+                <li class="list-group-item">
+                    {{ subtask.title }}
+                    {% if subtask.completed %} <span class="badge badge-success">Completed</span>{% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'add_subtask' task.id %}" class="btn btn-primary mt-3">Add Subtask</a>
+        <a href="{% url 'task_list' task.category.id %}" class="btn btn-secondary mt-3">Back to Task List</a>
+    </div>
+</body>
+</html>

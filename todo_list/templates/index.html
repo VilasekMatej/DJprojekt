@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-8 mt-3 mb-3">
+            <h2 class="bg-info text-light text-center text-uppercase p-3">{{ nadpis }}</h2>
+            {% for kniha in knihy %}
+            <div class="row mb-3">
+                <div class="col-lg-3">
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-lg-4 bg-light mt-3 mb-3">
+            <h2 class="bg-secondary text-light text-center p-3">Přehled žánrů</h2>
+            <ul class="list-group">
+            </ul>
+        </div>
+    </div>
+{% endblock %}

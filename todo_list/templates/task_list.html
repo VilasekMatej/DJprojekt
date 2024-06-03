@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{ category.name }} - Task List</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Tasks in {{ category.name }}</h1>
+        <ul class="list-group mt-3">
+            {% for task in tasks %}
+                <li class="list-group-item">
+                    <a href="{% url 'task_detail' task.id %}">{{ task.title }}</a>
+                    {% if task.completed %} <span class="badge badge-success">Completed</span>{% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'index' %}" class="btn btn-secondary mt-3">Back to Categories</a>
+    </div>
+</body>
+</html>
