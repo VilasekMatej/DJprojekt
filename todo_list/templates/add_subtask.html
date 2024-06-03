@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Add Subtask</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
     <div class="container">
         <h1 class="mt-5">Add Subtask to "{{ task.title }}"</h1>
         <form method="post" class="mt-3">
@@ -16,5 +10,4 @@
         </form>
         <a href="{% url 'task_detail' task.id %}" class="btn btn-secondary mt-3">Back to Task</a>
     </div>
-</body>
-</html>
+{% endblock %}
