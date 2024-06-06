@@ -3,3 +3,113 @@ header {
     background-repeat: no-repeat;
     background-position: left 30px center;
 }
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+/* Záhlaví */
+.navbar {
+    background-color: #007bff !important; /* Barva pozadí navigačního panelu */
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+    color: #ffffff !important; /* Barva textu odkazů v navigaci */
+}
+
+.navbar-brand:hover,
+.navbar-nav .nav-link:hover {
+    color: #f8f9fa !important; /* Barva textu odkazů v navigaci po najetí myší */
+}
+
+/* Zápatí */
+footer {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Tlačítka */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+/* Obrázky */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Poznámky */
+.alert {
+    margin-bottom: 20px;
+}
+
+/* Příklad dalších vlastních tříd */
+.custom-class {
+    /* Zde můžeš přidat další vlastnosti CSS pro vlastní třídu */
+}
+.table-wrapper {
+    overflow-x: auto; /* horizontální posuvník pro případ, že tabulka překročí šířku obrazovky */
+}
+
+table {
+    width: 100%; /* tabulka bude mít šířku 100% */
+    border-collapse: collapse;
+    table-layout: fixed; /* Pevná šířka tabulky */
+}
+
+th:first-child,
+td:first-child {
+    width: 30%;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+    width: 27%;
+}
+
+th:last-child,
+td:last-child {
+    width: 60%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    word-wrap: break-word; /* Zalomení slov v buňkách */
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+.event-data {
+    width: 100%; /* Zabere celou šířku buňky */
+    white-space: nowrap; /* zabráníme zalamování textu na nový řádek */
+    overflow: hidden; /* skryjeme text, který překračuje šířku buňky */
+    text-overflow: ellipsis; /* přidáme třešničku na dortu - zkrácený text bude ukončen třešničkou */
+}

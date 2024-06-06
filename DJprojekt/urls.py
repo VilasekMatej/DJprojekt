@@ -24,7 +24,6 @@ from DJprojekt import settings
 urlpatterns = [
     path('todolist/', include('todo_list.urls')),
     path('', RedirectView.as_view(url='todolist/')),
-    path('admin/', admin.site.urls),
 
 ]
 

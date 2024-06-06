@@ -2,19 +2,51 @@
 
 {% block content %}
     <div class="row">
-        <div class="col-lg-8 mt-3 mb-3">
-            <h2 class="bg-info text-light text-center text-uppercase p-3">{{ nadpis }}</h2>
-            {% for kniha in knihy %}
-            <div class="row mb-3">
-                <div class="col-lg-3">
-                </div>
+        <div class="col-lg-8">
+            <div class="jumbotron">
+                <h1 class="display-4">Vítejte v naší To-Do List aplikaci!</h1>
+                <p class="lead">Tato stránka vám pomůže efektivně spravovat vaše úkoly a plánovat váš čas efektivněji než kdy předtím. S naší jednoduchou a intuitivní aplikací můžete snadno vytvářet, upravovat a sledovat své úkoly, a to vše na jednom místě.</p>
+                <hr class="my-4">
+                <h2>Co můžete očekávat?</h2>
+                <ul>
+                    <li><strong>Přehledné zobrazení úkolů:</strong> Každý úkol má svůj název, popis a kategorii, což vám pomůže udržet si přehled o vašich prioritách.</li>
+                    <li><strong>Snadné přidávání úkolů:</strong> Přidání nového úkolu je hračka. Stačí vyplnit jednoduchý formulář a úkol je na světě.</li>
+                    <li><strong>Detailní informace o úkolech:</strong> Pro každý úkol můžete zobrazit detailní informace, včetně jeho stavu a případných podúkolů.</li>
+                </ul>
+                <p class="lead">
+                    <a class="btn btn-primary btn-lg" href="{% url 'add_task' %}" role="button">Přidat nový úkol</a>
+                </p>
             </div>
-            {% endfor %}
         </div>
-        <div class="col-lg-4 bg-light mt-3 mb-3">
-            <h2 class="bg-secondary text-light text-center p-3">Přehled žánrů</h2>
-            <ul class="list-group">
-            </ul>
+        <div class="col-lg-4">
+            <div class="table-wrapper"> <!-- Přidání obalu pro tabulku -->
+            <table class="table table-hover"> <!-- Přidání Bootstrap třídy pro zvýraznění řádku při najetí myší -->
+                <thead>
+                    <tr>
+                        <th>ID tasku</th>
+                        <th>Jméno eventu</th>
+                        <th>Popisek eventu</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if last_tasks %}
+                        {% for task in last_tasks %}
+                            <tr>
+                                <td>
+                                    <div class="event-data"><a href="{% url 'task_detail' task.id %}">{{ task.id }}</a></div> <!-- Odkaz na detail úkolu -->
+                                </td>
+                                <td>
+                                    <div class="event-data"><a href="{% url 'task_detail' task.id %}">{{ task.title }}</a></div> <!-- Odkaz na detail úkolu -->
+                                </td>
+                                <td>
+                                    <div class="event-data"><a href="{% url 'task_detail' task.id %}">{{ task.description }}</a></div> <!-- Odkaz na detail úkolu -->
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
         </div>
     </div>
 {% endblock %}

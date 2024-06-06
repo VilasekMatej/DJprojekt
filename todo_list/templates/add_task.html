@@ -2,12 +2,28 @@
 {% load static %}
 {% block content %}
     <div class="container">
-        <h1 class="mt-5">Add New Task</h1>
-        <form method="post" class="mt-3">
+        <h2 class="my-4">Přidání nového úkolu</h2>
+        <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">Save</button>
+            <div class="form-group">
+                <label for="title">Název úkolu:</label>
+                <input type="text" class="form-control" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Popis úkolu:</label>
+                <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="category">Kategorie úkolu:</label>
+                <select class="form-control" id="category" name="category" required>
+                    <option value="" disabled selected>Vyberte kategorii</option>
+                    <option value="1">Domácí úkoly</option>
+                    <option value="2">Pracovní úkoly</option>
+                    <option value="3">Osobní úkoly</option>
+                    <!-- Přidej další kategorie podle potřeby -->
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Přidat úkol</button>
         </form>
-        <a href="{% url 'index' %}" class="btn btn-secondary mt-3">Back to Categories</a>
     </div>
 {% endblock %}

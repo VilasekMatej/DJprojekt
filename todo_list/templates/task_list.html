@@ -2,15 +2,22 @@
 {% load static %}
 {% block content %}
     <div class="container">
-        <h1 class="mt-5">Tasks in {{ category.name }}</h1>
+        <h1 class="mt-5">Úkoly v kategorii: {{ category.name }}</h1>
         <ul class="list-group mt-3">
             {% for task in tasks %}
-                <li class="list-group-item">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
                     <a href="{% url 'task_detail' task.id %}">{{ task.title }}</a>
-                    {% if task.completed %} <span class="badge badge-success">Completed</span>{% endif %}
+                    {% if task.completed %}
+                        <span class="badge badge-success">Dokončeno</span>
+                    {% else %}
+                        <form class="form-inline" method="post" action="{% url 'complete_task' task.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary">Označit za splněné</button>
+                        </form>
+                    {% endif %}
                 </li>
             {% endfor %}
         </ul>
-        <a href="{% url 'index' %}" class="btn btn-secondary mt-3">Back to Categories</a>
+        <a href="{% url 'index' %}" class="btn btn-secondary mt-3">Zpět na kategorie</a>
     </div>
 {% endblock %}
