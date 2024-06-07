@@ -2,17 +2,12 @@
 {% load static %}
 {% block content %}
     <div class="container">
-        <h1 class="mt-5">{{ task.title }}</h1>
-        <p>{{ task.description }}</p>
-        <p>Completed: {% if task.completed %}Yes{% else %}No{% endif %}</p>
-        <h2 class="mt-4">Subtasks</h2>
-        <ul class="list-group mt-3">
-            {% for subtask in subtasks %}
-                <li class="list-group-item">
-                    {{ subtask.title }}
-                    {% if subtask.completed %} <span class="badge badge-success">Completed</span>{% endif %}
-                </li>
-            {% endfor %}
-        </ul>
+        <div class="card my-5">
+            <div class="card-body">
+                <h1 class="card-title">{{ task.title }}</h1>
+                <p class="card-text">{{ task.description }}</p>
+                <p class="card-text">Completed: {% if task.completed %}<span class="badge badge-success">Yes</span>{% else %}<span class="badge badge-danger">No</span>{% endif %}</p>
+            </div>
+        </div>
     </div>
 {% endblock %}

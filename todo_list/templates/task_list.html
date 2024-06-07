@@ -2,22 +2,47 @@
 {% load static %}
 {% block content %}
     <div class="container">
-        <h1 class="mt-5">Úkoly v kategorii: {{ category.name }}</h1>
-        <ul class="list-group mt-3">
-            {% for task in tasks %}
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <a href="{% url 'task_detail' task.id %}">{{ task.title }}</a>
-                    {% if task.completed %}
-                        <span class="badge badge-success">Dokončeno</span>
-                    {% else %}
-                        <form class="form-inline" method="post" action="{% url 'complete_task' task.id %}">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-primary">Označit za splněné</button>
-                        </form>
-                    {% endif %}
-                </li>
-            {% endfor %}
-        </ul>
+        <h1 class="mt-5">Úkoly: {{ category.name }}</h1>
+        <p></p>
+        <div class="table-wrapper"> <!-- Přidání obalu pro tabulku -->
+            <table class="table table-hover"> <!-- Přidání Bootstrap třídy pro zvýraznění řádku při najetí myší -->
+                <thead>
+                    <tr>
+                        <th style="width: 15%">ID úkolu</th> <!-- Upravení šířky prvního sloupce -->
+                        <th style="width: 25%">Název úkolu</th>
+                        <th style="width: 25%" class="w-auto">Popis úkolu</th> <!-- Přidání třídy pro dynamickou šířku sloupce -->
+                        <th style="width: 20%">Stav</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for task in tasks %}
+                        <tr>
+                            <td><a href="{% url 'task_detail' task.id %}">{{ task.id }}</a></td>
+                            <td><a href="{% url 'task_detail' task.id %}">{{ task.title }}</a></td>
+                            <td><a href="{% url 'task_detail' task.id %}">{{ task.description }}</a></td>
+                            <td class="text-center"> <!-- Přidání třídy pro zarovnání obsahu do středu -->
+                                {% if task.completed %}
+                                    <span class="badge badge-success">Dokončeno</span>
+                                {% else %}
+                                    <form class="form-inline d-inline" method="post" action="{% url 'complete_task' task.id %}">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-primary">Označit za splněné</button>
+                                    </form>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
         <a href="{% url 'index' %}" class="btn btn-secondary mt-3">Zpět na kategorie</a>
     </div>
+{% endblock %}
+
+{% block extrastyle %}
+<style>
+    .table-wrapper {
+        overflow-x: auto;
+    }
+</style>
 {% endblock %}

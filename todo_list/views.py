@@ -64,4 +64,4 @@ def complete_task(request, task_id):
     task = get_object_or_404(Task, id=task_id)
     task.completed = True
     task.save()
-    return redirect('task_detail', pk=task_id)
+    return redirect('user_tasks')

@@ -1,10 +1,6 @@
-header {
-    background-image: url('../img/book-logo.png');
-    background-repeat: no-repeat;
-    background-position: left 30px center;
-}
+/* Global Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     background-color: #f8f9fa;
 }
 
@@ -12,22 +8,23 @@ body {
     margin-top: 50px;
 }
 
-/* Záhlaví */
+/* Header */
 .navbar {
-    background-color: #007bff !important; /* Barva pozadí navigačního panelu */
+    background-color: #007bff !important; /* Navbar background color */
+     font-size: 1.25rem;
 }
 
 .navbar-brand,
 .navbar-nav .nav-link {
-    color: #ffffff !important; /* Barva textu odkazů v navigaci */
+    color: #ffffff !important; /* Navbar text color */
 }
 
 .navbar-brand:hover,
 .navbar-nav .nav-link:hover {
-    color: #f8f9fa !important; /* Barva textu odkazů v navigaci po najetí myší */
+    color: #f8f9fa !important; /* Navbar text color on hover */
 }
 
-/* Zápatí */
+/* Footer */
 footer {
     background-color: #343a40;
     color: #ffffff;
@@ -35,7 +32,7 @@ footer {
     text-align: center;
 }
 
-/* Tlačítka */
+/* Buttons */
 .btn-primary {
     background-color: #007bff;
     border-color: #007bff;
@@ -56,51 +53,43 @@ footer {
     border-color: #545b62;
 }
 
-/* Obrázky */
-.img-fluid {
-    max-width: 100%;
-    height: auto;
-}
-
-/* Poznámky */
+/* Alerts */
 .alert {
     margin-bottom: 20px;
 }
 
-/* Příklad dalších vlastních tříd */
-.custom-class {
-    /* Zde můžeš přidat další vlastnosti CSS pro vlastní třídu */
-}
+/* Tables */
 .table-wrapper {
-    overflow-x: auto; /* horizontální posuvník pro případ, že tabulka překročí šířku obrazovky */
+    overflow-x: auto; /* Horizontal scrollbar if table overflows */
 }
 
 table {
-    width: 100%; /* tabulka bude mít šířku 100% */
+    width: 100%; /* Full width */
     border-collapse: collapse;
-    table-layout: fixed; /* Pevná šířka tabulky */
-}
-
-th:first-child,
-td:first-child {
-    width: 30%;
-}
-
-th:nth-child(2),
-td:nth-child(2) {
-    width: 27%;
-}
-
-th:last-child,
-td:last-child {
-    width: 60%;
+    table-layout: fixed; /* Fixed table layout */
 }
 
 th, td {
-    padding: 8px;
+    padding: 12px;
     text-align: center;
     border-bottom: 1px solid #ddd;
-    word-wrap: break-word; /* Zalomení slov v buňkách */
+    word-wrap: break-word; /* Word wrapping */
+}
+
+th:first-child, td:first-child {
+    width: 10%; /* Width of first column */
+}
+
+th:nth-child(2), td:nth-child(2) {
+    width: 10%; /* Width of second column */
+}
+
+th:nth-child(3), td:nth-child(3) {
+    width: auto; /* Width of third column */
+}
+
+th:last-child, td:last-child {
+    width: 10%; /* Width of last column */
 }
 
 tr:hover {
@@ -108,8 +97,31 @@ tr:hover {
 }
 
 .event-data {
-    width: 100%; /* Zabere celou šířku buňky */
-    white-space: nowrap; /* zabráníme zalamování textu na nový řádek */
-    overflow: hidden; /* skryjeme text, který překračuje šířku buňky */
-    text-overflow: ellipsis; /* přidáme třešničku na dortu - zkrácený text bude ukončen třešničkou */
+    width: 100%; /* Full width */
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Hide overflowing text */
+    text-overflow: ellipsis; /* Ellipsis for overflowing text */
+}
+
+/* Task Detail Page */
+.card {
+    margin-top: 30px;
+}
+
+.card-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.card-text {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.badge-success {
+    background-color: #28a745;
+}
+
+.badge-danger {
+    background-color: #dc3545;
 }
